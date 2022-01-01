@@ -12,11 +12,8 @@ function Input({ count, setCount, countList, setCountList, price, id, name }) {
   };
 
   React.useEffect(() => {
-    
     setCountList([count, ...countList]);
-    if (count > 0) {
-      dispatch(addToCart({ name, id, price, number: countList[0] }));
-    }
+
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
@@ -24,9 +21,11 @@ function Input({ count, setCount, countList, setCountList, price, id, name }) {
 
   React.useEffect(() => {
     dispatch(buyItem(price * countDiff));
-  }, [countList, countDiff, dispatch, price]);
-
-  console.log(countList);
+    if (count > 0) {
+      dispatch(addToCart({ name, id, price, number: countList[0] }));
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [countList]);
 
   return (
     <>

@@ -13,7 +13,7 @@ function Cart() {
           <tbody key={item.id}>
             <tr>
               <td >{item.name}</td>
-              <td>x{item.number + 1}</td>
+              <td>x{Number(item.number) }</td>
               <td className="text-success fw-bolder">
                 ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
               </td>
