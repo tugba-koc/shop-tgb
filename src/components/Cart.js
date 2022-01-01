@@ -12,7 +12,7 @@ function Cart() {
         {cart.map((item) => (
           <tbody key={item.id}>
             <tr>
-              <td scope="row">{item.name}</td>
+              <td >{item.name}</td>
               <td>x{item.number + 1}</td>
               <td className="text-success fw-bolder">
                 ${item.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}

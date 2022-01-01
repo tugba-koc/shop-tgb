@@ -1,11 +1,9 @@
 import React from "react";
 import { buyItem, addToCart } from "../redux/reducers/moneySlice";
-import { useDispatch, useSelector } from "react-redux";
-import { selectCart } from "../redux/reducers/moneySlice";
+import { useDispatch } from "react-redux";
 
 function Input({ count, setCount, countList, setCountList, price, id, name }) {
   const dispatch = useDispatch();
-  const cart = useSelector(selectCart);
 
   let countDiff = 0;
 
@@ -14,16 +12,19 @@ function Input({ count, setCount, countList, setCountList, price, id, name }) {
   };
 
   React.useEffect(() => {
+    
     setCountList([count, ...countList]);
     if (count > 0) {
       dispatch(addToCart({ name, id, price, number: countList[0] }));
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [count]);
 
+  countDiff = countList.length >= 2 ? countList[0] - countList[1] : 0;
+
   React.useEffect(() => {
-    countDiff = countList.length >= 2 ? countList[0] - countList[1] : 0;
     dispatch(buyItem(price * countDiff));
-  }, [countList]);
+  }, [countList, countDiff, dispatch, price]);
 
   console.log(countList);
 

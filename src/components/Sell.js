@@ -1,5 +1,4 @@
 import React from "react";
-import { sellItem } from "../redux/reducers/moneySlice";
 
 function Sell({ count, setCount }) {
   const sellHandle = () => {

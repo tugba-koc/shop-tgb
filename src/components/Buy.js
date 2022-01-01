@@ -1,11 +1,9 @@
 import React from "react";
-import { addToCart } from "../redux/reducers/moneySlice";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { selectMoney } from "../redux/reducers/moneySlice";
 
 function Buy({ price, count, setCount }) {
   const money = useSelector(selectMoney);
-  const dispatch = useDispatch();
 
   const buyHandle = () => {
     if (count >= 0 && price <= money) {
