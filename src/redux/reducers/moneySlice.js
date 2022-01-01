@@ -16,6 +16,7 @@ export const moneySlice = createSlice({
       state.item -= action.payload;
     },
     addToCart: (state, action) => {
+      state.cart = state.cart.filter((item) => item.id !== action.payload.id);
       state.cart.push(action.payload);
     },
   },

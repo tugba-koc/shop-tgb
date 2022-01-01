@@ -16,8 +16,7 @@ function Input({ count, setCount, countList, setCountList, price, id, name }) {
   React.useEffect(() => {
     setCountList([count, ...countList]);
     if (count > 0) {
-      dispatch(addToCart({ name, id, number: countList[0] }));
-      
+      dispatch(addToCart({ name, id, price, number: countList[0] }));
     }
   }, [count]);
 

@@ -14,19 +14,21 @@ function MenuItem({ id, name, price, img }) {
     >
       <img src={img} height="120px" alt="img" />
       <p className="fs-4 fw-bolder mb-0">{name}</p>
-      <p className="fs-5 fw-normal text-success mt-0">${price}</p>
+      <p className="fs-5 fw-normal text-success mt-0">
+        ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+      </p>
       <div className="d-flex flex-row align-items-center justify-content-evenly">
         <Sell count={count} setCount={setCount} />
         <Input
-        id={id}
-        name={name}
+          id={id}
+          name={name}
           price={price}
           count={count}
           setCount={setCount}
           countList={countList}
           setCountList={setCountList}
         />
-        <Buy price={price} count={count} countList={countList} setCount={setCount} name={name} id={id} />
+        <Buy price={price} count={count} setCount={setCount} />
       </div>
     </div>
   );

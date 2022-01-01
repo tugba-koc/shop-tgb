@@ -3,7 +3,7 @@ import { addToCart } from "../redux/reducers/moneySlice";
 import { useSelector, useDispatch } from "react-redux";
 import { selectMoney } from "../redux/reducers/moneySlice";
 
-function Buy({ price, count, setCount, name, id, countList }) {
+function Buy({ price, count, setCount }) {
   const money = useSelector(selectMoney);
   const dispatch = useDispatch();
 
@@ -12,7 +12,6 @@ function Buy({ price, count, setCount, name, id, countList }) {
       setCount(Number(count) + 1);
     }
   };
-
 
   return (
     <>
