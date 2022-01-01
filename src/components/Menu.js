@@ -12,7 +12,11 @@ function Menu() {
   }, []);
 
   return (
-    <div className="row w-100 d-flex justify-content-center">
+    <div className="row w-100 d-flex justify-content-center ">
+      <div className="d-block d-flex justify-content-center">
+        <Cart />
+      </div>
+
       {data.map((item) => (
         <MenuItem
           id={item.id}
@@ -21,7 +25,6 @@ function Menu() {
           price={item.price}
         />
       ))}
-      <Cart />
     </div>
   );
 }
